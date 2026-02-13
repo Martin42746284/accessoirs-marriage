@@ -1,0 +1,10 @@
+[build]
+  command = "npm install"
+  functions = "netlify/functions"
+
+[functions]
+  node_bundler = "esbuild"
+
+[env]
+  [env.production]
+    DATABASE_URL = "REPLACE_ENV.DATABASE_URL"

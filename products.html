@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos Produits - Accessoires Mariage</title>
+    <meta name="description" content="Explorez notre collection complète d'accessoires de mariage">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <i class="fas fa-ring"></i>
+                    <span>Mariage Élégance</span>
+                </div>
+                
+                <nav class="nav" id="nav-menu">
+                    <ul class="nav-list">
+                        <li><a href="index.html" class="nav-link">Accueil</a></li>
+                        <li><a href="products.html" class="nav-link active">Produits</a></li>
+                        <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="nav-actions">
+                    <button class="cart-btn" id="cart-btn">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span class="cart-count" id="cart-count">0</span>
+                    </button>
+                    <button class="menu-toggle" id="menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="fade-in">Nos Produits</h1>
+            <p class="fade-in-delay">Découvrez notre collection complète</p>
+        </div>
+    </section>
+
+    <!-- Products Section with Filters -->
+    <section class="products-page">
+        <div class="container">
+            <div class="products-layout">
+                <!-- Filters Sidebar -->
+                <aside class="filters-sidebar">
+                    <div class="filter-section">
+                        <h3>Catégories</h3>
+                        <div class="filter-options">
+                            <label class="filter-option">
+                                <input type="radio" name="category" value="all" checked>
+                                <span>Toutes les catégories</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="radio" name="category" value="voiles">
+                                <span>Voiles</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="radio" name="category" value="accessoires">
+                                <span>Accessoires</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="radio" name="category" value="chaussures">
+                                <span>Chaussures</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="radio" name="category" value="bouquets">
+                                <span>Bouquets</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="radio" name="category" value="robes">
+                                <span>Robes</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="filter-section">
+                        <h3>Prix</h3>
+                        <div class="filter-options">
+                            <label class="filter-option">
+                                <input type="radio" name="price" value="all" checked>
+                                <span>Tous les prix</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="radio" name="price" value="0-500000">
+                                <span>Moins de 500 000 Ar</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="radio" name="price" value="500000-1000000">
+                                <span>500 000 - 1 000 000 Ar</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="radio" name="price" value="1000000-3000000">
+                                <span>1 000 000 - 3 000 000 Ar</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="radio" name="price" value="3000000-5000000">
+                                <span>3 000 000 - 5 000 000 Ar</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="radio" name="price" value="5000000+">
+                                <span>Plus de 5 000 000 Ar</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="filter-section">
+                        <h3>Trier par</h3>
+                        <select class="sort-select" id="sort-select">
+                            <option value="default">Par défaut</option>
+                            <option value="price-asc">Prix croissant</option>
+                            <option value="price-desc">Prix décroissant</option>
+                            <option value="name">Nom A-Z</option>
+                        </select>
+                    </div>
+                </aside>
+
+                <!-- Products Grid -->
+                <div class="products-main">
+                    <div class="products-header">
+                        <p id="products-count">Affichage de tous les produits</p>
+                        <button class="filter-toggle" id="filter-toggle">
+                            <i class="fas fa-filter"></i> Filtres
+                        </button>
+                    </div>
+                    
+                    <div class="products-grid" id="all-products-container">
+                        <!-- All products will be loaded dynamically via JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-ring"></i> Mariage Élégance</h3>
+                    <p>Votre destination pour des accessoires de mariage raffinés</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="products.html">Produits</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+               <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> +261 38 34 633 91</li>
+                        <li><i class="fas fa-envelope"></i> contact@mariageelegance.mg</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Antsirabe, Madagascar</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Mariage Élégance. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Product Detail Modal - À ajouter avant <!-- Cart Sidebar --> -->
+    <div class="product-modal" id="product-modal">
+        <div class="product-modal-overlay" id="modal-overlay"></div>
+        <div class="product-modal-content">
+            <button class="close-modal" id="close-modal">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="modal-body">
+                <div class="modal-gallery">
+                    <div class="main-image-container">
+                        <img src="" alt="" id="modal-main-image" class="modal-main-image">
+                        <button class="gallery-nav prev" id="prev-image">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="gallery-nav next" id="next-image">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    <div class="thumbnail-container" id="thumbnail-container"></div>
+                </div>
+                
+                <div class="modal-info">
+                    <div class="modal-header">
+                        <span class="modal-category" id="modal-category"></span>
+                        <span class="modal-badge" id="modal-badge"></span>
+                    </div>
+                    
+                    <h2 class="modal-title" id="modal-title"></h2>
+                    <div class="modal-price" id="modal-price"></div>
+                    
+                    <div class="modal-description">
+                        <h3>Description</h3>
+                        <p id="modal-description"></p>
+                    </div>
+                    
+                    <div class="modal-actions">
+                        <div class="quantity-selector">
+                            <label>Quantité:</label>
+                            <div class="quantity-controls-modal">
+                                <button class="qty-btn" id="modal-qty-minus">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                                <input type="number" id="modal-quantity" value="1" min="1" max="10" readonly>
+                                <button class="qty-btn" id="modal-qty-plus">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <button class="btn btn-primary btn-block" id="modal-add-to-cart">
+                            <i class="fas fa-shopping-cart"></i> Ajouter au panier
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3>Mon Panier</h3>
+            <button class="close-cart" id="close-cart">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <!-- Cart items will be loaded dynamically -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cart-total">0.00 €</span>
+            </div>
+            <button class="btn btn-primary btn-block">Commander</button>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/api-loader.js"></script>
+    <script src="data/products.js"></script>
+    <script src="js/product-modal.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
+</body>
+</html>

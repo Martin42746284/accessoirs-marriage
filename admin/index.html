@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Mariage Élégance</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body>
+    <div class="admin-dashboard">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo">👑</div>
+                <h2 class="sidebar-title">Admin</h2>
+            </div>
+
+            <nav class="sidebar-nav">
+                <li><a class="nav-link active" data-section="dashboard"><i class="fas fa-chart-line"></i> Tableau de bord</a></li>
+                <li><a class="nav-link" data-section="products"><i class="fas fa-gem"></i> Produits</a></li>
+                <li><a class="nav-link" data-section="collections"><i class="fas fa-th"></i> Collections</a></li>
+                <li><a class="nav-link" data-section="orders"><i class="fas fa-shopping-bag"></i> Commandes</a></li>
+                <li><a class="nav-link" data-section="messages"><i class="fas fa-envelope"></i> Messages</a></li>
+                <li style="margin-top: 40px; border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 20px;">
+                    <a id="logout-btn" class="nav-link" style="color: #e74c3c;"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
+                </li>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <!-- Header -->
+            <div class="admin-header">
+                <h1>Tableau de Bord</h1>
+                <div class="admin-user-info">
+                    <span class="admin-user-name" id="user-name">Admin</span>
+                    <button class="btn-logout" id="logout-btn-header">Déconnexion</button>
+                </div>
+            </div>
+
+            <!-- Dashboard Section -->
+            <section class="admin-content active" id="dashboard-content">
+                <div class="content-header">
+                    <h2>Bienvenue dans le tableau de bord</h2>
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                    <div style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                        <h3 style="color: #d4af77; margin-bottom: 10px;">Total Produits</h3>
+                        <p id="total-products" style="font-size: 32px; font-weight: bold; color: #2c2c2c;">0</p>
+                    </div>
+                    <div style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                        <h3 style="color: #d4af77; margin-bottom: 10px;">Total Commandes</h3>
+                        <p id="total-orders" style="font-size: 32px; font-weight: bold; color: #2c2c2c;">0</p>
+                    </div>
+                    <div style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                        <h3 style="color: #d4af77; margin-bottom: 10px;">Messages Non Lus</h3>
+                        <p id="unread-messages" style="font-size: 32px; font-weight: bold; color: #2c2c2c;">0</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Products Section -->
+            <section class="admin-content" id="products-content">
+                <div class="content-header">
+                    <h2>Gestion des Produits</h2>
+                    <button class="btn-add" id="btn-add-product"><i class="fas fa-plus"></i> Ajouter un produit</button>
+                </div>
+                <div class="table-container">
+                    <div class="table-responsive">
+                        <table id="products-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nom</th>
+                                    <th>Catégorie</th>
+                                    <th>Prix</th>
+                                    <th>Vedette</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="products-tbody">
+                                <!-- Products will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Collections Section -->
+            <section class="admin-content" id="collections-content">
+                <div class="content-header">
+                    <h2>Gestion des Collections</h2>
+                    <button class="btn-add" id="btn-add-collection"><i class="fas fa-plus"></i> Ajouter une collection</button>
+                </div>
+                <div class="table-container">
+                    <div class="table-responsive">
+                        <table id="collections-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nom</th>
+                                    <th>Slug</th>
+                                    <th>Produits</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="collections-tbody">
+                                <!-- Collections will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Orders Section -->
+            <section class="admin-content" id="orders-content">
+                <div class="content-header">
+                    <h2>Gestion des Commandes</h2>
+                </div>
+                <div class="table-container">
+                    <div class="table-responsive">
+                        <table id="orders-table">
+                            <thead>
+                                <tr>
+                                    <th>N° Commande</th>
+                                    <th>Client</th>
+                                    <th>Email</th>
+                                    <th>Total</th>
+                                    <th>Statut</th>
+                                    <th>Date</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="orders-tbody">
+                                <!-- Orders will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Messages Section -->
+            <section class="admin-content" id="messages-content">
+                <div class="content-header">
+                    <h2>Messages des Clients</h2>
+                </div>
+                <div class="table-container">
+                    <div class="table-responsive">
+                        <table id="messages-table">
+                            <thead>
+                                <tr>
+                                    <th>Nom</th>
+                                    <th>Email</th>
+                                    <th>Sujet</th>
+                                    <th>Statut</th>
+                                    <th>Date</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="messages-tbody">
+                                <!-- Messages will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Product Modal -->
+    <div class="modal" id="product-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="product-modal-title">Ajouter un produit</h3>
+                <button class="modal-close" data-modal="product-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="product-form">
+                    <div class="form-group">
+                        <label for="product-name">Nom du produit</label>
+                        <input type="text" id="product-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="product-collection">Collection</label>
+                        <select id="product-collection">
+                            <option value="">Sélectionner une collection</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="product-price">Prix</label>
+                        <input type="number" id="product-price" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="product-description">Description</label>
+                        <textarea id="product-description"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="product-badge">Badge</label>
+                        <input type="text" id="product-badge">
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="product-featured"> Produit vedette
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label for="product-images">URLs des images (une par ligne)</label>
+                        <textarea id="product-images" placeholder="images/products/image1.jpg&#10;images/products/image2.jpg"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-cancel" data-modal="product-modal">Annuler</button>
+                <button class="btn-submit" id="product-submit">Enregistrer</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Collection Modal -->
+    <div class="modal" id="collection-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="collection-modal-title">Ajouter une collection</h3>
+                <button class="modal-close" data-modal="collection-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="collection-form">
+                    <div class="form-group">
+                        <label for="collection-name">Nom</label>
+                        <input type="text" id="collection-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="collection-slug">Slug</label>
+                        <input type="text" id="collection-slug" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="collection-description">Description</label>
+                        <textarea id="collection-description"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="collection-image">URL de l'image</label>
+                        <input type="text" id="collection-image">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-cancel" data-modal="collection-modal">Annuler</button>
+                <button class="btn-submit" id="collection-submit">Enregistrer</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Order Status Modal -->
+    <div class="modal" id="order-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Détails de la commande</h3>
+                <button class="modal-close" data-modal="order-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="order-details"></div>
+                <div class="form-group" style="margin-top: 20px;">
+                    <label for="order-status">Statut</label>
+                    <select id="order-status">
+                        <option value="pending">En attente</option>
+                        <option value="processing">En cours</option>
+                        <option value="completed">Complétée</option>
+                        <option value="cancelled">Annulée</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-cancel" data-modal="order-modal">Fermer</button>
+                <button class="btn-submit" id="order-submit">Mettre à jour</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Message Modal -->
+    <div class="modal" id="message-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Détails du message</h3>
+                <button class="modal-close" data-modal="message-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="message-details"></div>
+                <div class="form-group" style="margin-top: 20px;">
+                    <label for="message-status">Statut</label>
+                    <select id="message-status">
+                        <option value="unread">Non lu</option>
+                        <option value="read">Lu</option>
+                        <option value="replied">Répondu</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-cancel" data-modal="message-modal">Fermer</button>
+                <button class="btn-submit" id="message-submit">Mettre à jour</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/admin.js"></script>
+</body>
+</html>

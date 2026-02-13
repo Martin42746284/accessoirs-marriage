@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessoires Mariage - Élégance & Beauté</title>
+    
+    <meta name="description" content="Découvrez notre collection d'accessoires de mariage raffinés">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <i class="fas fa-ring"></i>
+                    <span>Mariage Élégance</span>
+                </div>
+                
+                <nav class="nav" id="nav-menu">
+                    <ul class="nav-list">
+                        <li><a href="index.html" class="nav-link active">Accueil</a></li>
+                        <li><a href="products.html" class="nav-link">Produits</a></li>
+                        <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="nav-actions">
+                    <button class="cart-btn" id="cart-btn">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span class="cart-count" id="cart-count">0</span>
+                    </button>
+                    <button class="menu-toggle" id="menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-slider">
+            <!-- Slide 1 -->
+            <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?w=1920&q=80');">
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <span class="hero-badge fade-in">✨ Nouvelle Collection 2025</span>
+                    <h1 class="hero-title fade-in-delay">Votre Jour Parfait</h1>
+                    <p class="hero-subtitle fade-in-delay-2">Découvrez notre collection exclusive d'accessoires de mariage</p>
+                    <div class="hero-buttons fade-in-delay-3">
+                        <a href="products.html" class="btn btn-primary btn-large">
+                            Découvrir la Collection <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a href="contact.html" class="btn btn-secondary btn-large">
+                            Nous Contacter <i class="fas fa-phone"></i>
+                        </a>
+                    </div>
+                    <div class="hero-stats fade-in-delay-4">
+                        <div class="stat-item">
+                            <span class="stat-number">500+</span>
+                            <span class="stat-label">Mariées satisfaites</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">60+</span>
+                            <span class="stat-label">Produits exclusifs</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-label">Qualité garantie</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="scroll-indicator fade-in-delay-4">
+                    <span>Défiler pour découvrir</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+            
+            <!-- Slide 2 -->
+            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1606800052052-a08af7148866?w=1920&q=80');">
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <span class="hero-badge">💍 Robes de Mariée</span>
+                    <h1 class="hero-title">La Robe de Vos Rêves</h1>
+                    <p class="hero-subtitle">Collection exclusive de robes élégantes et sophistiquées</p>
+                    <div class="hero-buttons">
+                        <a href="products.html" class="btn btn-primary btn-large">
+                            Voir les Robes <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Slide 3 -->
+            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=1920&q=80');">
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <span class="hero-badge">🌸 Accessoires & Bouquets</span>
+                    <h1 class="hero-title">Sublimez Votre Style</h1>
+                    <p class="hero-subtitle">Accessoires raffinés et bouquets sur mesure pour votre jour unique</p>
+                    <div class="hero-buttons">
+                        <a href="products.html" class="btn btn-primary btn-large">
+                            Découvrir <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Navigation du slider -->
+        <div class="hero-navigation">
+            <button class="hero-nav-btn prev" id="hero-prev">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="hero-nav-btn next" id="hero-next">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+        
+        <!-- Indicateurs -->
+        <div class="hero-indicators">
+            <span class="indicator active" data-slide="0"></span>
+            <span class="indicator" data-slide="1"></span>
+            <span class="indicator" data-slide="2"></span>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories" id="categories">
+        <div class="container">
+            <h2 class="section-title">Nos Collections</h2>
+            <p class="section-subtitle">Explorez notre sélection exclusive d'accessoires de mariage</p>
+            
+            <div class="categories-grid">
+                <!-- Première ligne: 2 cartes principales -->
+                <a href="products.html?category=robes" class="category-card category-card-featured slide-up" data-category="robes">
+                    <div class="category-image" style="background-image: url('https://images.unsplash.com/photo-1519741497674-611481863552?w=1200&q=80');">
+                        <div class="category-overlay"></div>
+                    </div>
+                    <div class="category-content">
+                        <div class="category-icon">
+                            <i class="fas fa-crown"></i>
+                        </div>
+                        <h3>Robes de Mariée</h3>
+                        <p>La robe de vos rêves</p>
+                        <span class="category-count">28 produits</span>
+                        <div class="category-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </a>
+                
+                <a href="products.html?category=voiles" class="category-card category-card-featured slide-up" data-category="voiles">
+                    <div class="category-image" style="background-image: url('https://images.unsplash.com/photo-1594552072238-6d9a8d3e3b5e?w=800&q=80');">
+                        <div class="category-overlay"></div>
+                    </div>
+                    <div class="category-content">
+                        <div class="category-icon">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <h3>Voiles</h3>
+                        <p>Élégance intemporelle</p>
+                        <span class="category-count">4 produits</span>
+                        <div class="category-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- Deuxième ligne: 3 cartes compactes -->
+                <a href="products.html?category=accessoires" class="category-card slide-up" data-category="accessoires">
+                    <div class="category-image" style="background-image: url('https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800&q=80');">
+                        <div class="category-overlay"></div>
+                    </div>
+                    <div class="category-content">
+                        <div class="category-icon">
+                            <i class="fas fa-gem"></i>
+                        </div>
+                        <h3>Accessoires</h3>
+                        <p>Détails précieux</p>
+                        <span class="category-count">9 produits</span>
+                        <div class="category-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </a>
+                
+                <a href="products.html?category=chaussures" class="category-card slide-up" data-category="chaussures">
+                    <div class="category-image" style="background-image: url('https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=800&q=80');">
+                        <div class="category-overlay"></div>
+                    </div>
+                    <div class="category-content">
+                        <div class="category-icon">
+                            <i class="fas fa-shoe-prints"></i>
+                        </div>
+                        <h3>Chaussures</h3>
+                        <p>Confort raffiné</p>
+                        <span class="category-count">10 produits</span>
+                        <div class="category-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </a>
+                
+                <a href="products.html?category=bouquets" class="category-card slide-up" data-category="bouquets">
+                    <div class="category-image" style="background-image: url('https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=800&q=80');">
+                        <div class="category-overlay"></div>
+                    </div>
+                    <div class="category-content">
+                        <div class="category-icon">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <h3>Bouquets</h3>
+                        <p>Beauté florale</p>
+                        <span class="category-count">9 produits</span>
+                        <div class="category-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products Section -->
+    <section class="products" id="featured-products">
+        <div class="container">
+            <h2 class="section-title">Produits Vedettes</h2>
+            <div class="products-grid" id="products-container">
+                <!-- Products will be loaded dynamically via JS -->
+            </div>
+            <div class="text-center">
+                <a href="products.html" class="btn btn-secondary">Voir Tous les Produits</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Témoignages</h2>
+            <p class="section-subtitle">Ce que nos clientes disent de nous</p>
+            
+            <div class="testimonials-slider">
+                <div class="testimonials-grid">
+                    <!-- Témoignage 1 -->
+                    <div class="testimonial-card fade-in">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar" style="background-image: url('https://i.pravatar.cc/150?img=1');">
+                            </div>
+                            <div class="testimonial-info">
+                                <h4>Sophie Martin</h4>
+                                <span class="testimonial-date">Il y a 2 semaines</span>
+                            </div>
+                        </div>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"Des accessoires magnifiques qui ont rendu mon mariage encore plus spécial! La qualité est exceptionnelle et l'équipe a été très attentive à mes besoins."</p>
+                        <div class="testimonial-product">
+                            <i class="fas fa-gem"></i>
+                            <span>Diadème élégant</span>
+                        </div>
+                        <div class="quote-icon">
+                            <i class="fas fa-quote-right"></i>
+                        </div>
+                    </div>
+                    
+                    <!-- Témoignage 2 -->
+                    <div class="testimonial-card fade-in">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar" style="background-image: url('https://i.pravatar.cc/150?img=5');">
+                            </div>
+                            <div class="testimonial-info">
+                                <h4>Marie Dubois</h4>
+                                <span class="testimonial-date">Il y a 1 mois</span>
+                            </div>
+                        </div>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"Qualité exceptionnelle et service client parfait. Je recommande vivement! L'équipe m'a aidée à trouver la robe parfaite pour mon grand jour."</p>
+                        <div class="testimonial-product">
+                            <i class="fas fa-crown"></i>
+                            <span>Robe de mariée élégante</span>
+                        </div>
+                        <div class="quote-icon">
+                            <i class="fas fa-quote-right"></i>
+                        </div>
+                    </div>
+                    
+                    <!-- Témoignage 3 -->
+                    <div class="testimonial-card fade-in">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar" style="background-image: url('https://i.pravatar.cc/150?img=9');">
+                            </div>
+                            <div class="testimonial-info">
+                                <h4>Claire Lefebvre</h4>
+                                <span class="testimonial-date">Il y a 3 semaines</span>
+                            </div>
+                        </div>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"Le voile de mes rêves! Livraison rapide et emballage soigné. C'était exactement ce que je cherchais pour compléter ma tenue."</p>
+                        <div class="testimonial-product">
+                            <i class="fas fa-user-tie"></i>
+                            <span>Voile romantique délicat</span>
+                        </div>
+                        <div class="quote-icon">
+                            <i class="fas fa-quote-right"></i>
+                        </div>
+                    </div>
+                    
+                    <!-- Témoignage 4 -->
+                    <div class="testimonial-card fade-in">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar" style="background-image: url('https://i.pravatar.cc/150?img=10');">
+                            </div>
+                            <div class="testimonial-info">
+                                <h4>Emma Rousseau</h4>
+                                <span class="testimonial-date">Il y a 1 semaine</span>
+                            </div>
+                        </div>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"Les chaussures sont non seulement magnifiques mais aussi très confortables! J'ai pu danser toute la soirée sans aucune gêne."</p>
+                        <div class="testimonial-product">
+                            <i class="fas fa-shoe-prints"></i>
+                            <span>Escarpins élégants</span>
+                        </div>
+                        <div class="quote-icon">
+                            <i class="fas fa-quote-right"></i>
+                        </div>
+                    </div>
+                    
+                    <!-- Témoignage 5 -->
+                    <div class="testimonial-card fade-in">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar" style="background-image: url('https://i.pravatar.cc/150?img=20');">
+                            </div>
+                            <div class="testimonial-info">
+                                <h4>Laura Bernard</h4>
+                                <span class="testimonial-date">Il y a 2 mois</span>
+                            </div>
+                        </div>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"Bouquet absolument sublime! Les fleurs étaient fraîches et l'arrangement était parfait. Merci pour ce magnifique souvenir!"</p>
+                        <div class="testimonial-product">
+                            <i class="fas fa-seedling"></i>
+                            <span>Bouquet romantique</span>
+                        </div>
+                        <div class="quote-icon">
+                            <i class="fas fa-quote-right"></i>
+                        </div>
+                    </div>
+                    
+                    <!-- Témoignage 6 -->
+                    <div class="testimonial-card fade-in">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar" style="background-image: url('https://i.pravatar.cc/150?img=27');">
+                            </div>
+                            <div class="testimonial-info">
+                                <h4>Camille Moreau</h4>
+                                <span class="testimonial-date">Il y a 3 mois</span>
+                            </div>
+                        </div>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"Service impeccable de A à Z! L'équipe est à l'écoute et les conseils sont précieux. Je suis ravie de mon expérience."</p>
+                        <div class="testimonial-product">
+                            <i class="fas fa-gem"></i>
+                            <span>Parure élégante</span>
+                        </div>
+                        <div class="quote-icon">
+                            <i class="fas fa-quote-right"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Stats Section -->
+            <div class="testimonials-stats">
+                <div class="stat-box">
+                    <div class="stat-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>500+</h3>
+                    <p>Mariées satisfaites</p>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>4.9/5</h3>
+                    <p>Note moyenne</p>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>100%</h3>
+                    <p>Qualité garantie</p>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-icon">
+                        <i class="fas fa-shipping-fast"></i>
+                    </div>
+                    <h3>48h</h3>
+                    <p>Livraison rapide</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-ring"></i> Mariage Élégance</h3>
+                    <p>Votre destination pour des accessoires de mariage raffinés</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="products.html">Produits</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+               <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> +261 38 34 633 91</li>
+                        <li><i class="fas fa-envelope"></i> contact@mariageelegance.mg</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Antsirabe, Madagascar</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Mariage Élégance. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Product Detail Modal - À ajouter avant <!-- Cart Sidebar --> -->
+    <div class="product-modal" id="product-modal">
+        <div class="product-modal-overlay" id="modal-overlay"></div>
+        <div class="product-modal-content">
+            <button class="close-modal" id="close-modal">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="modal-body">
+                <div class="modal-gallery">
+                    <div class="main-image-container">
+                        <img src="" alt="" id="modal-main-image" class="modal-main-image">
+                        <button class="gallery-nav prev" id="prev-image">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="gallery-nav next" id="next-image">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    <div class="thumbnail-container" id="thumbnail-container"></div>
+                </div>
+                
+                <div class="modal-info">
+                    <div class="modal-header">
+                        <span class="modal-category" id="modal-category"></span>
+                        <span class="modal-badge" id="modal-badge"></span>
+                    </div>
+                    
+                    <h2 class="modal-title" id="modal-title"></h2>
+                    <div class="modal-price" id="modal-price"></div>
+                    
+                    <div class="modal-description">
+                        <h3>Description</h3>
+                        <p id="modal-description"></p>
+                    </div>
+                    
+                    <div class="modal-actions">
+                        <div class="quantity-selector">
+                            <label>Quantité:</label>
+                            <div class="quantity-controls-modal">
+                                <button class="qty-btn" id="modal-qty-minus">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                                <input type="number" id="modal-quantity" value="1" min="1" max="10" readonly>
+                                <button class="qty-btn" id="modal-qty-plus">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <button class="btn btn-primary btn-block" id="modal-add-to-cart">
+                            <i class="fas fa-shopping-cart"></i> Ajouter au panier
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3>Mon Panier</h3>
+            <button class="close-cart" id="close-cart">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <!-- Cart items will be loaded dynamically -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cart-total">0.00 €</span>
+            </div>
+            <button class="btn btn-primary btn-block" id="btn-commande">Commander</button>
+        </div>
+    </div>
+    
+    <div class="cart-overlay" id="cart-overlay"></div>
+
+    <!-- JavaScript -->
+    <script src="js/api-loader.js"></script>
+    <script src="data/products.js"></script>
+    <script src="js/product-modal.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
+
+</body>
+</html>
