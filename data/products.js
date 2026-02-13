@@ -690,6 +690,9 @@ const products = [
     }
 ];
 
+// Stocker les produits statiques dans window pour utilisation comme fallback
+window.staticProducts = products;
+
 // Export pour utilisation dans d'autres fichiers
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = products;

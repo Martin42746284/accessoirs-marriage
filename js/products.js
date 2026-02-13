@@ -4,7 +4,7 @@
 
 document.addEventListener('DOMContentLoaded', function() {
     
-    let allProducts = products; // Depuis data/products.js
+    let allProducts = window.products || []; // Depuis data/products.js ou api-loader.js
     let filteredProducts = [...allProducts];
     let currentFilters = {
         category: 'all',
@@ -189,7 +189,7 @@ document.addEventListener('DOMContentLoaded', function() {
     categoryFilters.forEach(filter => {
         filter.addEventListener('change', (e) => {
             currentFilters.category = e.target.value;
-            applyFilters();p
+            applyFilters();
         });
     });
     
@@ -324,4 +324,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     `;
     document.head.appendChild(style);
+
+    // Exposer les fonctions globalement pour utilisation depuis api-loader.js
+    window.displayProducts = displayProducts;
+    window.updateProductCount = updateProductCount;
 });
