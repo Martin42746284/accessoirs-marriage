@@ -39,12 +39,12 @@ Cela créera toutes les tables nécessaires et importera les produits existants.
 Avant de déployer, créez un utilisateur admin avec la curl:
 
 ```bash
-curl -X POST https://votre-site.netlify.app/.netlify/functions/auth-register \
+curl -X POST https://marriage-accssoirs.netlify.app/.netlify/functions/auth-register \
   -H "Content-Type: application/json" \
   -d '{
     "username": "admin",
     "email": "admin@example.com",
-    "password": "VotreMotDePasse"
+    "password": "admin123"
   }'
 ```
 
