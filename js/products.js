@@ -3,7 +3,7 @@
 // ============================================
 
 document.addEventListener('DOMContentLoaded', function() {
-    
+
     let allProducts = window.products || []; // Depuis data/products.js ou api-loader.js
     let filteredProducts = [...allProducts];
     let currentFilters = {
@@ -11,29 +11,46 @@ document.addEventListener('DOMContentLoaded', function() {
         price: 'all',
         sort: 'default'
     };
-    
+
     // Intervalles pour les diaporamas
     const slideIntervals = new Map();
-    
+
     // ============================================
     // AFFICHER LES PRODUITS VEDETTES (PAGE ACCUEIL)
     // ============================================
-    
-    const featuredContainer = document.getElementById('products-container');
-    if (featuredContainer) {
-        const featuredProducts = allProducts.filter(p => p.featured).slice(0, 6);
-        displayProducts(featuredProducts, featuredContainer);
+
+    function loadFeaturedProducts() {
+        const featuredContainer = document.getElementById('products-container');
+        if (featuredContainer && window.products && window.products.length > 0) {
+            const featuredProducts = window.products.filter(p => p.featured).slice(0, 6);
+            displayProducts(featuredProducts, featuredContainer);
+        }
     }
+
+    // Charger les produits vedettes immédiatement s'ils sont disponibles
+    loadFeaturedProducts();
+
+    // Écouter l'événement de chargement des produits depuis api-loader.js
+    window.addEventListener('productsLoaded', function() {
+        allProducts = window.products || [];
+        filteredProducts = [...allProducts];
+        loadFeaturedProducts();
+    });
     
     // ============================================
     // AFFICHER TOUS LES PRODUITS (PAGE PRODUITS)
     // ============================================
-    
-    const allProductsContainer = document.getElementById('all-products-container');
-    if (allProductsContainer) {
-        displayProducts(filteredProducts, allProductsContainer);
-        updateProductCount(filteredProducts.length);
+
+    function loadAllProducts() {
+        const allProductsContainer = document.getElementById('all-products-container');
+        if (allProductsContainer && window.products && window.products.length > 0) {
+            displayProducts(window.products, allProductsContainer);
+            updateProductCount(window.products.length);
+        }
     }
+
+    // Charger tous les produits immédiatement s'ils sont disponibles
+    loadAllProducts();
     
     // ============================================
     // FONCTION D'AFFICHAGE DES PRODUITS
