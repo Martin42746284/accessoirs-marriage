@@ -18,7 +18,7 @@ export async function handler(event) {
     const { category, featured } = event.queryStringParameters || {};
 
     let sql = `
-      SELECT 
+      SELECT
         p.id,
         p.name,
         p.description,
@@ -28,12 +28,15 @@ export async function handler(event) {
         c.id as collection_id,
         c.name as collection_name,
         c.slug as collection_slug,
-        json_agg(
-          json_build_object(
-            'id', pi.id,
-            'image_url', pi.image_url,
-            'sort_order', pi.sort_order
-          ) ORDER BY pi.sort_order
+        COALESCE(
+          json_agg(
+            json_build_object(
+              'id', pi.id,
+              'image_url', pi.image_url,
+              'sort_order', pi.sort_order
+            ) ORDER BY pi.sort_order
+          ) FILTER (WHERE pi.id IS NOT NULL),
+          '[]'::json
         ) as images
       FROM products p
       LEFT JOIN collections c ON p.collection_id = c.id

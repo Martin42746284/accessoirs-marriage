@@ -158,9 +158,16 @@ document.getElementById('product-submit').addEventListener('click', submitProduc
 async function loadProducts() {
   try {
     const response = await fetch(`${API_BASE}/products-list`);
+
+    if (!response.ok) {
+      throw new Error(`Erreur HTTP: ${response.status}`);
+    }
+
     const data = await response.json();
     const tbody = document.getElementById('products-tbody');
     tbody.innerHTML = '';
+
+    console.log('Données reçues:', data); // Pour le débogage
 
     if (!data.products || data.products.length === 0) {
       tbody.innerHTML = '<tr><td colspan="6" style="text-align: center;">Aucun produit trouvé</td></tr>';
@@ -168,27 +175,34 @@ async function loadProducts() {
     }
 
     data.products.forEach(product => {
-      const row = document.createElement('tr');
-      row.innerHTML = `
-        <td>${product.id}</td>
-        <td>${product.name}</td>
-        <td>${product.collection_name || '-'}</td>
-        <td>${product.price.toFixed(2)} €</td>
-        <td>${product.featured ? '<span style="color: #27ae60;">✓</span>' : '-'}</td>
-        <td>
-          <div class="action-buttons">
-            <button class="btn-edit" onclick="editProduct(${product.id})">Éditer</button>
-            <button class="btn-delete" onclick="deleteProduct(${product.id})">Supprimer</button>
-          </div>
-        </td>
-      `;
-      tbody.appendChild(row);
+      try {
+        const price = parseFloat(product.price) || 0;
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${product.id}</td>
+          <td>${product.name || 'Sans titre'}</td>
+          <td>${product.collection_name || '-'}</td>
+          <td>${price.toFixed(2)} €</td>
+          <td>${product.featured ? '<span style="color: #27ae60;">✓</span>' : '-'}</td>
+          <td>
+            <div class="action-buttons">
+              <button class="btn-edit" onclick="editProduct(${product.id})">Éditer</button>
+              <button class="btn-delete" onclick="deleteProduct(${product.id})">Supprimer</button>
+            </div>
+          </td>
+        `;
+        tbody.appendChild(row);
+      } catch (rowError) {
+        console.error('Erreur lors du traitement du produit:', product, rowError);
+      }
     });
 
     // Load collections for the form
     loadCollectionsForForm();
   } catch (error) {
     console.error('Erreur lors du chargement des produits:', error);
+    const tbody = document.getElementById('products-tbody');
+    tbody.innerHTML = `<tr><td colspan="6" style="text-align: center; color: red;">Erreur: ${error.message}</td></tr>`;
   }
 }
 
